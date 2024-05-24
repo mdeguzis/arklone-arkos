@@ -38,7 +38,7 @@ function manualBackupArkOSScreen() {
                 --title "${ARKLONE[whiptailTitle]}" \
                 --msgbox \
                     "ArkOS backup synced to ${ARKLONE[remote]}:ArkOS. Log saved to ${ARKLONE[backupDir]}/arkosbackup.log." \
-                    16 45 8
+                    16 55 8
 
             # Delete ArkOS settings backup file
             if [[ $keep != 0 ]]; then

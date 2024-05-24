@@ -23,14 +23,16 @@ function setCloudScreen() {
     # Get list of rclone remotes
     local remotes=$(rclone listremotes | cut -d ':' -f 1)
 
-    local selection=$(whiptail \
+    rm -f "/tmp/whiptail.tmp"
+    whiptail \
         --title "${ARKLONE[whiptailTitle]}" \
         --menu \
             "Choose a cloud service:" \
             16 60 8 \
             $(printMenu "${remotes}") \
-        3>&1 1>&2 2>&3 \
-    )
+            2> "/tmp/whiptail.tmp"
+
+    local selection=$(cat "/tmp/whiptail.tmp")
 
     # Save user selection and reload config
     if [[ ! -z "${selection}" ]]; then
@@ -39,5 +41,5 @@ function setCloudScreen() {
 
         loadConfig "${ARKLONE[userCfg]}" ARKLONE
     fi
-}
+
 

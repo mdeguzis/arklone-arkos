@@ -25,7 +25,7 @@ function homeScreen() {
     whiptail \
         --title "${ARKLONE[whiptailTitle]}" \
         --menu "Choose an option:" \
-            16 45 8 \
+            16 55 8 \
             "1" "Set cloud remote (now: $([[ "${ARKLONE[remote]}" ]] && echo "${ARKLONE[remote]}" || echo "NONE"))" \
             "2" "Manually sync saves" \
             "3" "${ableString} automatic saves sync" \

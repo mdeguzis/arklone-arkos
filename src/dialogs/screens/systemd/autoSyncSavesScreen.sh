@@ -21,7 +21,7 @@ function autoSyncSavesScreen() {
         whiptail \
             --title "${ARKLONE[whiptailTitle]}" \
             --menu "Choose interval to attempt to receive saves from ${ARKLONE[remote]} in the background." \
-                16 45 8 \
+                16 55 8 \
                 "0" "Only receive saves on boot" \
                 "1" "Every 10 minutes" \
                 "2" "Every 20 minutes" \

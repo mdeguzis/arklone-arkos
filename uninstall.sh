@@ -70,5 +70,8 @@ if [[ ! $KEEP_INSTALL_DIR ]]; then
     sudo rm -rf "${ARKLONE[installDir]}"
 fi
 
+# Remove options script entry
+rm -f "/opt/system/Cloud Settings.sh"
+
 echo "Uninstallation complete. Thanks for trying arklone!"
 

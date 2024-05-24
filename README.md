@@ -37,10 +37,7 @@ This module is not yet integrated into ArkOS. See [this pull request](https://gi
 To test, install manually by downloading the [installation script](https://github.com/ridgekuhn/arkos/raw/cloudbackups/10092021/install.sh), and run it from a terminal:
 
 ```shell
-wget https://github.com/ridgekuhn/arkos/raw/cloudbackups/10092021/install.sh -O installArklone.sh
-chmod a+x installArklone.sh
-./installArklone.sh
-rm ./installArklone.sh
+./install.sh
 ```
 
 &nbsp;
@@ -48,10 +45,7 @@ rm ./installArklone.sh
 ## Uninstallation ##
 
 ```shell
-wget https://github.com/ridgekuhn/arkos/raw/cloudbackups/10092021/uninstall.sh -O uninstallArklone.sh
-chmod a+x uninstallArklone.sh
-./uninstallArklone.sh
-rm ./uninstallArklone.sh
+./uninstall.sh
 ```
 &nbsp;
 

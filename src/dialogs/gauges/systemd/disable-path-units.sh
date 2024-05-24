@@ -35,6 +35,6 @@ while read line; do
 done | whiptail \
     --title "${ARKLONE[whiptailTitle]}" \
     --gauge "Please wait while we disable automatic syncing..." \
-    16 56 \
+    16 45 \
     0
 

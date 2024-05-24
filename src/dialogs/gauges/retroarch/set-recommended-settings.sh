@@ -32,6 +32,6 @@ while read line; do
 done | whiptail \
     --title "${ARKLONE[whiptailTitle]}" \
     --gauge "Please wait while we configure your RetroArch settings..." \
-    16 56 \
+    16 45 \
     0
 

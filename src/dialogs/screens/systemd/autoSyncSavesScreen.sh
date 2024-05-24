@@ -17,10 +17,11 @@ function autoSyncSavesScreen() {
     # Enable units
     if [[ "${#enabledUnits[@]}" = 0 ]]; then
         # Get user timer selection
-        local selection=$(whiptail \
+        rm -f "/tmp/whiptail.tmp"
+        whiptail \
             --title "${ARKLONE[whiptailTitle]}" \
             --menu "Choose interval to attempt to receive saves from ${ARKLONE[remote]} in the background." \
-                16 60 8 \
+                16 45 8 \
                 "0" "Only receive saves on boot" \
                 "1" "Every 10 minutes" \
                 "2" "Every 20 minutes" \
@@ -28,9 +29,9 @@ function autoSyncSavesScreen() {
                 "4" "Every 40 minutes" \
                 "5" "Every 50 minutes" \
                 "6" "Every 60 minutes" \
-            3>&1 1>&2 2>&3 \
-        )
+                --cancel-button "Exit" 2> "/tmp/whiptail.tmp"
 
+        local selection=$(cat "/tmp/whiptail.tmp")
         local timerSeconds=$(( $selection * 600 ))
 
         # Create timer unit

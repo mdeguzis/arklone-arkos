@@ -66,7 +66,7 @@ function manualSyncSavesScreen() {
         --title "${ARKLONE[whiptailTitle]}" \
         --menu \
             "Choose a directory to sync with (${ARKLONE[remote]}):" \
-            16 60 8 \
+            16 45 8 \
             "a" "Sync all" "" "" $(printMenu "${localdirs}") \
         3>&1 1>&2 2>&3 \
     )

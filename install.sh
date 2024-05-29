@@ -99,7 +99,7 @@ fi
 if [[ -f "${HOME}/.config/rclone/rclone.conf" ]]; then
     echo "Backing up and moving your rclone.conf to EASYROMS"
 
-    cp "${HOME}/.config/rclone/rclone.conf" "${HOME}/.config/rclone/rclone.conf.arklone$(date +%s).bak"
+    cp -v "${HOME}/.config/rclone/rclone.conf" "${HOME}/.config/rclone/rclone.conf.arklone$(date +%s).bak"
 
     # Suppress errors
     mv "${HOME}/.config/rclone/rclone.conf" "${ARKLONE[backupDir]}/rclone/rclone.conf" 2>/dev/null
@@ -108,7 +108,7 @@ fi
 # Create user-accessible rclone.conf in ${ARKLONE[backupDir]}
 # and symlink it to the default rclone location
 touch "${ARKLONE[backupDir]}/rclone/rclone.conf"
-ln -v -s "${ARKLONE[backupDir]}/rclone/rclone.conf" "${HOME}/.config/rclone/rclone.conf"
+ln -sfv "${ARKLONE[backupDir]}/rclone/rclone.conf" "${HOME}/.config/rclone/rclone.conf"
 chown "${USER}":"${USER}" "${HOME}/.config/rclone/rclone.conf"
 chown "${USER}":"${USER}" "${ARKLONE[backupDir]}/rclone/rclone.conf"
 

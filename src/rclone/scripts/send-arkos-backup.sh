@@ -49,3 +49,11 @@ echo "Sending ArkOS backup to ${ARKLONE[remote]}"
 
 rclone copy "${ARKLONE[backupDir]}/" "${ARKLONE[remote]}:arklone/ArkOS/" -v --filter "+ arkosbackup*" --filter "- *" --config "${ARKLONE[rcloneConf]}"
 
+# EXTRA FILES - Added by this fork. Should be removed if a PR is made against the original repo
+# NEVER remove the last filter '- *' or your entire system will start backing up!
+echo "Copying extra configuration files not covered by ArkOS backup script"
+rclone copy / "${ARKLONE[remote]}:arklone/ArkOS/" -v \
+    --filter "+ ${HOME}/.bashrc" \
+    --filter "+ ${HOME}/.vimrc" \
+    --filter "- *" \
+    --config "${ARKLONE[rcloneConf]}"

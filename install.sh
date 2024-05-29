@@ -12,7 +12,7 @@ printf "\nInstalling cloud sync services\n"
 if [[ ! -d "/opt/arklone" ]]; then
     git clone --depth 1 https://github.com/ridgekuhn/arklone-arkos /opt/arklone
 else
-    git -C /opt/arklone --reset hard
+    git -C /opt/arklone reset --hard
     git -C /opt/arklone pull --rebase
 fi
 sudo chown ark:ark /opt/arklone

@@ -41,5 +41,4 @@ function setCloudScreen() {
 
         loadConfig "${ARKLONE[userCfg]}" ARKLONE
     fi
-
-
+}

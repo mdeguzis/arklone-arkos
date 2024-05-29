@@ -9,18 +9,15 @@ printf "\nInstalling cloud sync services\n"
 # ARKLONE
 #########
 
-if [[ ! -d "/opt/arklone" ]]; then
-    git clone --depth 1 https://github.com/ridgekuhn/arklone-arkos /opt/arklone
-else
-    git -C /opt/arklone reset --hard
-    git -C /opt/arklone pull --rebase
-fi
-sudo chown ark:ark /opt/arklone
+sudo mkdir -p "/opt/arklone"
+sudo chown ark:ark "/opt/arklone"
+rsync -rav --delete . "/opt/arklone/"
 chmod u+x /opt/arklone/install.sh
 
 source "/opt/arklone/src/config.sh"
 
 echo "Now installing arklone cloud sync utility..."
+sleep 1
 
 ############
 # FILESYSTEM

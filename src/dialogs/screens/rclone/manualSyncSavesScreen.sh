@@ -62,27 +62,31 @@ function manualSyncSavesScreen() {
     local exitCode=0
 
     # Get user's directory selection
-    local dirSelection=$(whiptail \
+    rm -f "/tmp/whiptail.dir.tmp"
+    whiptail \
         --title "${ARKLONE[whiptailTitle]}" \
         --menu \
             "Choose a directory to sync with (${ARKLONE[remote]}):" \
             16 55 8 \
             "a" "Sync all" "" "" $(printMenu "${localdirs}") \
-        3>&1 1>&2 2>&3 \
-    )
+            2> "/tmp/whiptail.dir.tmp"
+
+    local dirSelection=$(cat "/tmp/whiptail.dir.tmp")
 
     # Return if user canceled
     [[ $dirSelection ]] || return
 
     # Get user's sync method selection
-    local syncMethod=$(whiptail \
+    rm -f "/tmp/whiptail.method.tmp"
+    whiptail \
         --title "${ARKLONE[whiptailTitle]}" \
         --menu \
             "Would you like to send or receive?" \
             16 60 8 \
             0 "Send" 1 "Receive" \
-        3>&1 1>&2 2>&3 \
-    )
+            2> "/tmp/whiptail.method.tmp"
+
+    local syncMethod=$(cat "/tmp/whiptail.method.tmp")
 
     # Return if user canceled
     [[ $syncMethod ]] || return
